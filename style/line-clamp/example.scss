@@ -1,0 +1,5 @@
+@import "@/app/style/line-clamp.module";
+
+.text {
+  @include line-clamp(1);
+}
