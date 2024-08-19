@@ -12,7 +12,7 @@ const Example = () => {
   });
 
   return (
-    <div className="content">
+    <div className='content'>
       <button onClick={alert}>알림 띄우기</button>
     </div>
   );

@@ -1,3 +1,21 @@
+## https + ssl 적용방법
+
+> Let's Encrypt를 사용하여 nginx에 적용을 시키고
+>
+> http와 https의 도메인/api로 들어오게 되면 만들어둔 서버 api로 라우팅 시킴
+
+## 개발 버전
+
+> Next
+>
+> - 14버전
+> - app router
+> - server action
+>
+> React-Native
+>
+> - 0.72버전
+
 <details>
 <summary>Sync와 Async의 차이점을 설명해 주세요.</summary>
 Sync는 요청을 보내고 해당 요청에 대한 응답을 기다리는 것을 의미하고,
