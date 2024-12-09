@@ -27,29 +27,41 @@
 <details>
 <summary>url 을 입력하면 어떻게 되나 ? / 브라우저 실행 순서 *</summary>
 
-1. IP주소 확인
+### 1. IP주소 확인
 
 - 브라우저는 DNS를 통해 웹 서버의 IP 주소를 파악한다.
 
-2. 3-way Handshake
+### 2. 3-way Handshake
 
-- 브라우저와 서버가 3-way Handshake를 나눈다.
+- 브라우저와 서버가 3-way Handshake를 나누는 TCP 통신을 한다
 
-3. HTTP Request & Response
+### 3. HTTP Request & Response
 
-- 브라우저가 서버에게 HTTP Request를 보내면, 서버는 브라우저에게 HTTP Response를 보낸다.
+- 브라우저가 서버에게 HTTP Request를 보내면, 서버는 브라우저에게 HTML Response를 보낸다.
 
-4. 데이터 Parsing
+### 4. 데이터 Parsing
 
-- 서버로부터 받은 데이터의 HTML을 Parsing하여 Dom Tree를 생성한다.
-- 이 때 style 태그를 만나면 HTML Parsing을 중단하고 CSS Parsing하여 CSSOM Tree를 생성한다.
-- script 태그를 만나면 HTML Parsing을 중단하고 자바스크립트 엔진에게 권한을 넘겨 Script Parsing하고, Abstract Syntax Tree(AST)를 생성한다.
-- Dom Tree와 CSSOM Tree를 합쳐 Render Tree를 생성한다.
-- 렌더링 엔진은 Render Tree에 있는 노드를 화면에 배치한다.
-- Render Tree에 있는 노드의 UI를 그린다.
-- 노드들의 레이어를 z-index에 맞게 순서대로 구성한다.
+#### 1. HTML 파싱
 
-5. 화면 출력
+브라우저는 HTML 문서를 파싱하여 DOM(Document Object Model) 트리를 생성한다. 이 과정에서 브라우저는 HTML 태그의 종류와 속성을 분석하고, 각 태그의 위치를 계산한다.
+
+#### 2. CSS 파싱
+
+브라우저는 CSS 문서를 파싱하여 CSSOM(CSS Object Model) 트리를 생성한다. 이 과정에서 브라우저는 CSS 선택자와 규칙을 분석하고, 각 규칙의 적용 범위와 우선 순위를 계산한다.
+
+#### 3. 렌더 트리 생성
+
+브라우저는 DOM 트리와 CSSOM 트리를 결합하여 렌더 트리를 생성한다. 이 과정에서 브라우저는 레이아웃과 페인팅에 필요한 정보를 추출하고, 숨겨진 요소나 비표시 요소를 필터링한다.
+
+#### 4. 레이아웃
+
+브라우저는 렌더 트리의 각 요소의 위치와 크기를 계산하여 뷰포트 내에서의 정확한 배치를 수행한다. 이 과정에서 브라우저는 브라우저 창의 크기나 스크롤 위치 등의 요소도 고려한다.
+
+#### 5. 페인팅
+
+브라우저는 렌더링된 요소들을 화면에 그린다. 이 과정에서 브라우저는 CSS 스타일, 배경, 그림자, 그림 등을 고려하며, 여러 계층으로 구성된 렌더링 요소들을 하나의 이미지로 합치는 과정도 포함된다.
+
+#### 6. 화면 출력
 
 </details>
 <br/>
@@ -790,4 +802,20 @@ https://velog.io/@from_numpy/TypeScript-Tuple%ED%8A%9C%ED%94%8C
 
 </details>
 
+<br/>
+
+<details>
+<summary>Next 폴더구조</summary>
+
+### Route group
+
+Route group은 말그대로 route가 될 수 있는 페이지들을 하나의 그룹으로 묶을 수 있게 해줍니다.
+
+문법은 간단하게 (name) 이런식으로 폴더 네이밍을 작성해주시면 됩니다.
+
+### private folder
+
+문법은 \_folder 이런식으로 작성하면 이 폴더는 route로 생성되지 않습니다.
+
+</details>
 <br/>
