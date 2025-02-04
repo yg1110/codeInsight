@@ -3,7 +3,7 @@ const N = +arr[0];
 const nums = arr[1].split(" ").map(Number);
 const ans = nums.filter(num => {
     if(num === 1) return false;
-    for(let i=2; i<=num/2; i++) {
+    for(let i=2; i * i <= num; i++) {
         if(num % i === 0) {
             return false;
         }
