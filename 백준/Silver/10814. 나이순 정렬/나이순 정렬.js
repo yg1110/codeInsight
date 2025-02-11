@@ -1,22 +1,10 @@
 const arr = require("fs").readFileSync("/dev/stdin").toString().trim().split("\n");
 const N = +arr.shift();
-const member = arr.map((item, index) => {
-    const [age, name] = item.split(" ");
-    return {
-        index: index,
-        age: +age,
-        name: name
-    }
+const members = arr.sort((a, b) => {
+    const [age1, name1] = a.split(" ");
+    const [age2, name2] = b.split(" ");
+    if(+age1 > +age2) return 1;
+    else if(+age1 < +age2) return -1;
+    else return 0;
 });
-const sortedMember = member.sort((a, b) => {
-    if(a.age > b.age) return 1;
-    else if(a.age < b.age) return -1;
-    else {
-        if(a.index > b.index) return 1;
-        else if(a.index < b.index) return -1;
-        else return 0;
-    }
-});
-sortedMember.forEach(member => {
-    console.log(`${member.age} ${member.name}`);
-});
+console.log(members.join("\n"));
