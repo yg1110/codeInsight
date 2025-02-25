@@ -9,5 +9,5 @@ const coord = arr.map(item =>
     }
 );
 for(let i=0; i<N; i++) {
-    console.log(coord[i].join(" "));
+    console.log(`${coord[i][0]} ${coord[i][1]}`);
 }
