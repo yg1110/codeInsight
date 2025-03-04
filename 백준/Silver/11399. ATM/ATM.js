@@ -2,10 +2,9 @@ const input = require("fs").readFileSync("/dev/stdin").toString().trim().split("
 const N = +input[0];
 const arr = input[1].split(" ").map(Number).sort((a, b) => a - b);
 
-let sum = 0;
-for(let i=0; i<N; i++) {
-    for(let j=0; j<i+1; j++) {
-        sum += arr[j];
-    }
-}
+let beforeSum = 0;
+const sum = arr.reduce((acc, cur) => {
+    beforeSum += cur;
+    return acc += beforeSum;
+}, 0);
 console.log(sum);
