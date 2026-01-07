@@ -1,49 +1,59 @@
-const arr = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
-const [N, M, V] = arr.shift().split(' ').map(Number);
+const input = require("fs")
+  .readFileSync("/dev/stdin")
+  .toString()
+  .trim()
+  .split("\n");
 
-const makeGraph = () => {
-  const graph = Array.from({ length: N + 1 }, () => []);
-  for (let i = 0; i < M; i++) {
-    const [a, b] = arr[i].split(' ').map(Number);
+const [N, M, V] = input[0].split(" ").map(Number);
+const graph = Array.from({ length: N + 1 }, () => []);
+const queue = [];
+
+function init() {
+  for (let i = 1; i <= M; i++) {
+    const [a, b] = input[i].split(" ").map(Number);
     graph[a].push(b);
     graph[b].push(a);
   }
-  return graph.map((nodes) => nodes.sort((a, b) => a - b));
-};
 
-const getBfs = (graph) => {
-  let queue = graph[V];
-  const visit = new Array(N + 1).fill(false);
-  visit[V] = true;
-  const result = [V];
+  for (let i = 0; i < graph.length; i++) {
+    graph[i].sort((a, b) => a - b);
+  }
+}
+
+function bfs(node) {
+  let result = "";
+  queue.push(node);
+  const visited = Array(N + 1).fill(false);
+  visited[node] = true;
   while (queue.length) {
-    const now = queue.shift();
-    if (!visit[now]) {
-      visit[now] = true;
-      result.push(now);
-      queue = queue.concat(graph[now]);
+    const current = queue.shift();
+    result += current + " ";
+    for (const next of graph[current]) {
+      if (!visited[next]) {
+        visited[next] = true;
+        queue.push(next);
+      }
     }
   }
-  return result.join(' ');
-};
+  return result.trim();
+}
 
-const getDfs = (graph) => {
-  const result = [V];
-  const visit = new Array(N + 1).fill(false);
-  visit[V] = true;
-  const dfs = (nodes) => {
-    for (let i = 0; i < nodes.length; i++) {
-      const node = nodes[i];
-      if (visit[node]) continue;
-      visit[node] = true;
-      result.push(node);
-      dfs(graph[node]);
+function dfsFunc(node) {
+  let result = node + " ";
+  const visited = Array(N + 1).fill(false);
+  function dfs(node) {
+    visited[node] = true;
+    for (const next of graph[node]) {
+      if (!visited[next]) {
+        result += next + " ";
+        dfs(next);
+      }
     }
-  };
-  dfs(graph[V]);
-  return result.join(' ');
-};
+    return result.trim();
+  }
+  return dfs(node);
+}
 
-const graph = makeGraph();
-console.log(getDfs(graph));
-console.log(getBfs(graph));
+init();
+console.log(dfsFunc(V));
+console.log(bfs(V));
