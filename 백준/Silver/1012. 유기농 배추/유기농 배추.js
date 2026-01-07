@@ -1,48 +1,52 @@
-const input = require("fs").readFileSync("/dev/stdin").toString().trim().split("\n");
+const input = require("fs")
+  .readFileSync("/dev/stdin")
+  .toString()
+  .trim()
+  .split("\n");
+
 const T = +input.shift();
+const di = [-1, 1, 0, 0];
+const dj = [0, 0, -1, 1];
+for (let t = 0; t < T; t++) {
+  const [M, N, K] = input.shift().split(" ").map(Number);
+  const map = [];
+  const visit = [];
+  let cnt = 0;
 
-for(let tc=0; tc<T; tc++) {
-    const [M, N, K] = input.shift().split(" ").map(Number);
-    const arr =  Array(N).fill(0).map(() => Array(M).fill(0));
-    const queue = [];
-
-    const findCabbage = () => {
-        let ans = 0;
-        for(let i=0; i<N; i++) {
-            for(let j=0; j<M; j++) {
-                if(arr[i][j] === 1) {
-                    arr[i][j] = 2;
-                    queue.push({ x: j, y: i });
-                    ans++;
-                    bfs();
-                }
-            }
-        }
-        return ans;
+  function dfs(node) {
+    const { i, j } = node;
+    for (let d = 0; d < 4; d++) {
+      const ni = i + di[d];
+      const nj = j + dj[d];
+      if (
+        ni >= 0 &&
+        ni < N &&
+        nj >= 0 &&
+        nj < M &&
+        map[ni][nj] === 1 &&
+        !visit[ni][nj]
+      ) {
+        visit[ni][nj] = true;
+        dfs({ i: ni, j: nj });
+      }
     }
+  }
 
-    const bfs = () => {
-        let dy = [-1, 1, 0, 0];
-        let dx = [0, 0, -1, 1];
-        while(queue.length) {
-            const { x, y } = queue.shift();
-            for(let i=0; i<4; i++) {
-                const ny = dy[i] + y;
-                const nx = dx[i] + x;
-                if(ny >= 0 && ny < N && nx >= 0 && nx < M) {
-                    if(arr[ny][nx] === 1) {
-                        arr[ny][nx] = 2;
-                        queue.push({ x: nx, y: ny });
-                    }
-                }
-            }
-        }
+  for (let i = 0; i < N; i++) {
+    map.push(Array(M).fill(0));
+    visit.push(Array(M).fill(false));
+  }
+  for (let k = 0; k < K; k++) {
+    const [j, i] = input.shift().split(" ").map(Number);
+    map[i][j] = 1;
+  }
+  for (let i = 0; i < N; i++) {
+    for (let j = 0; j < M; j++) {
+      if (map[i][j] === 1 && !visit[i][j]) {
+        cnt++;
+        dfs({ i, j });
+      }
     }
-
-    for(let i=0; i<K; i++) {
-        const [x, y] = input.shift().split(" ").map(Number);
-        arr[y][x] = 1;
-    }
-   
-    console.log(findCabbage());
+  }
+  console.log(cnt);
 }
