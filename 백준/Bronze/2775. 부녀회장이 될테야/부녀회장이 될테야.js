@@ -1,24 +1,29 @@
-const arr = require("fs").readFileSync("/dev/stdin").toString().trim().split("\n").map(Number);
+const input = require("fs")
+  .readFileSync("/dev/stdin")
+  .toString()
+  .trim()
+  .split("\n")
+  .map(Number);
 
-const T = arr[0];
-for(let t=0; t<T; t++) {
-    const ans = [];
-    const [k, n] = [arr[t * 2 + 1], arr[t * 2 + 2]]
-    for(let i=0; i<=k; i++) {
-        const current = [];
-        for(let j=1; j<=n; j++) {
-            current.push(j);
-        }
-        ans.push(current);
+const MAX = 14;
+const T = input[0];
+const dp = Array.from({ length: MAX + 1 }, () =>
+  Array.from({ length: MAX + 1 }).fill(0)
+);
+
+for (let i = 1; i <= MAX; i++) {
+  dp[0][i] = i;
+}
+let idx = 1;
+
+for (let t = 0; t < T; t++) {
+  const k = input[idx++];
+  const n = input[idx++];
+  for (let i = 1; i <= k; i++) {
+    dp[i][1] = 1;
+    for (let j = 2; j <= n; j++) {
+      dp[i][j] = dp[i][j - 1] + dp[i - 1][j];
     }
-    for(let i=1; i<=k; i++) {
-        for(let j=0; j<n; j++) {
-            let sum = 0;
-            for(let l=0; l<=j; l++) {
-                sum += ans[i-1][l];
-            }
-            ans[i][j] = sum;
-        }
-    }
-    console.log(ans[k][n-1]);
+  }
+  console.log(dp[k][n]);
 }
