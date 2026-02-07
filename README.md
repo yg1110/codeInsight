@@ -37,9 +37,9 @@
 
 <!-- COUNTS:START -->
 
-- BOJ: (auto)
-- Programmers: (auto)
-- SWEA: (auto)
+![BOJ Solutions](https://img.shields.io/badge/BOJ%20Solutions-209-blue?style=for-the-badge)
+![Programmers Solutions](https://img.shields.io/badge/Programmers%20Solutions-15-blue?style=for-the-badge)
+![SWEA Solutions](https://img.shields.io/badge/SWEA%20Solutions-2-blue?style=for-the-badge)
 <!-- COUNTS:END -->
 
 ---
@@ -48,13 +48,13 @@
 
 <!-- BREAKDOWN:START -->
 
-- BOJ Bronze: (auto)
-- BOJ Silver: (auto)
-- BOJ Gold: (auto)
-- Programmers Lv1: (auto)
-- Programmers Lv2: (auto)
-- SWEA D2: (auto)
-- SWEA D3: (auto)
+![BOJ Bronze](https://img.shields.io/badge/BOJ%20Bronze-131-blue?style=flat-square)
+![BOJ Silver](https://img.shields.io/badge/BOJ%20Silver-74-blue?style=flat-square)
+![BOJ Gold](https://img.shields.io/badge/BOJ%20Gold-4-blue?style=flat-square)
+![Programmers Lv1](https://img.shields.io/badge/Programmers%20Lv1-8-blue?style=flat-square)
+![Programmers Lv2](https://img.shields.io/badge/Programmers%20Lv2-7-blue?style=flat-square)
+![SWEA D2](https://img.shields.io/badge/SWEA%20D2-1-blue?style=flat-square)
+![SWEA D3](https://img.shields.io/badge/SWEA%20D3-1-blue?style=flat-square)
 <!-- BREAKDOWN:END -->
 
 ---
@@ -75,7 +75,16 @@
 
 <!-- RECENT_SOLUTIONS:START -->
 
-- (auto)
+- [백준/Bronze/11942. 고려대는 사랑입니다/고려대는 사랑입니다.js](https://github.com/yg1110/codeInsight/blob/main/%EB%B0%B1%EC%A4%80/Bronze/11942.%E2%80%85%EA%B3%A0%EB%A0%A4%EB%8C%80%EB%8A%94%E2%80%85%EC%82%AC%EB%9E%91%EC%9E%85%EB%8B%88%EB%8B%A4/%EA%B3%A0%EB%A0%A4%EB%8C%80%EB%8A%94%E2%80%85%EC%82%AC%EB%9E%91%EC%9E%85%EB%8B%88%EB%8B%A4.js) — 2026-02-07
+- [백준/Bronze/1212. 8진수 2진수/8진수 2진수.js](https://github.com/yg1110/codeInsight/blob/main/%EB%B0%B1%EC%A4%80/Bronze/1212.%E2%80%858%EC%A7%84%EC%88%98%E2%80%852%EC%A7%84%EC%88%98/8%EC%A7%84%EC%88%98%E2%80%852%EC%A7%84%EC%88%98.js) — 2026-02-07
+- [백준/Bronze/13277. 큰 수 곱셈/큰 수 곱셈.js](https://github.com/yg1110/codeInsight/blob/main/%EB%B0%B1%EC%A4%80/Bronze/13277.%E2%80%85%ED%81%B0%E2%80%85%EC%88%98%E2%80%85%EA%B3%B1%EC%85%88/%ED%81%B0%E2%80%85%EC%88%98%E2%80%85%EA%B3%B1%EC%85%88.js) — 2026-02-07
+- [백준/Bronze/14928. 큰 수 （BIG）/큰 수 （BIG）.js](https://github.com/yg1110/codeInsight/blob/main/%EB%B0%B1%EC%A4%80/Bronze/14928.%E2%80%85%ED%81%B0%E2%80%85%EC%88%98%E2%80%85%EF%BC%88BIG%EF%BC%89/%ED%81%B0%E2%80%85%EC%88%98%E2%80%85%EF%BC%88BIG%EF%BC%89.js) — 2026-02-07
+- [백준/Bronze/1550. 16진수/16진수.js](https://github.com/yg1110/codeInsight/blob/main/%EB%B0%B1%EC%A4%80/Bronze/1550.%E2%80%8516%EC%A7%84%EC%88%98/16%EC%A7%84%EC%88%98.js) — 2026-02-07
+- [백준/Bronze/15680. 연세대학교/연세대학교.js](https://github.com/yg1110/codeInsight/blob/main/%EB%B0%B1%EC%A4%80/Bronze/15680.%E2%80%85%EC%97%B0%EC%84%B8%EB%8C%80%ED%95%99%EA%B5%90/%EC%97%B0%EC%84%B8%EB%8C%80%ED%95%99%EA%B5%90.js) — 2026-02-07
+- [백준/Bronze/15733. 나는 누구인가/나는 누구인가.js](https://github.com/yg1110/codeInsight/blob/main/%EB%B0%B1%EC%A4%80/Bronze/15733.%E2%80%85%EB%82%98%EB%8A%94%E2%80%85%EB%88%84%EA%B5%AC%EC%9D%B8%EA%B0%80/%EB%82%98%EB%8A%94%E2%80%85%EB%88%84%EA%B5%AC%EC%9D%B8%EA%B0%80.js) — 2026-02-07
+- [백준/Bronze/15740. A＋B － 9/A＋B － 9.js](https://github.com/yg1110/codeInsight/blob/main/%EB%B0%B1%EC%A4%80/Bronze/15740.%E2%80%85A%EF%BC%8BB%E2%80%85%EF%BC%8D%E2%80%859/A%EF%BC%8BB%E2%80%85%EF%BC%8D%E2%80%859.js) — 2026-02-07
+- [백준/Bronze/15963. CASIO/CASIO.js](https://github.com/yg1110/codeInsight/blob/main/%EB%B0%B1%EC%A4%80/Bronze/15963.%E2%80%85CASIO/CASIO.js) — 2026-02-07
+- [백준/Bronze/16170. 오늘의 날짜는？/오늘의 날짜는？.js](https://github.com/yg1110/codeInsight/blob/main/%EB%B0%B1%EC%A4%80/Bronze/16170.%E2%80%85%EC%98%A4%EB%8A%98%EC%9D%98%E2%80%85%EB%82%A0%EC%A7%9C%EB%8A%94%EF%BC%9F/%EC%98%A4%EB%8A%98%EC%9D%98%E2%80%85%EB%82%A0%EC%A7%9C%EB%8A%94%EF%BC%9F.js) — 2026-02-07
 <!-- RECENT_SOLUTIONS:END -->
 
 ---
