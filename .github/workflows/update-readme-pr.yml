@@ -1,0 +1,49 @@
+name: Update README (Counts + Recent) via PR
+
+on:
+  push:
+    branches: ["main"]
+  schedule:
+    - cron: "0 0 * * *" # 매일 00:00 UTC (KST 09:00)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: readme-update-pr
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Update counts
+        run: node scripts/update_counts.mjs
+
+      - name: Update recent solutions
+        run: node scripts/update_recent_solutions.mjs
+        env:
+          TOP_N: "10"
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "chore: update README (counts & recent)"
+          title: "chore: update README (counts & recent)"
+          body: |
+            Automated README update (counts/breakdown/recent solutions).
+          branch: "bot/update-readme"
+          delete-branch: true
+          labels: "automation"
