@@ -7,8 +7,20 @@ const input = require("fs")
 const [N, K, P] = input[0].split(" ").map(Number);
 const bread = input[1].split(" ");
 let ans = 0;
+
+function checkDefective(i) {
+  let cnt = 0;
+  for (let j = 0; j < K; j++) {
+    const index = K * i + j;
+    if (bread[index] === "0") {
+      cnt++;
+    }
+    if (cnt >= P) return false;
+  }
+  return true;
+}
+
 for (let i = 0; i < N; i++) {
-  const br = bread.splice(0, K).sort();
-  ans += br[Math.floor(br.length / 2)] === "1" ? 1 : 0;
+  ans += checkDefective(i) ? 1 : 0;
 }
 console.log(ans);
