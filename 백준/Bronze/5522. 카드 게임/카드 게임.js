@@ -1,0 +1,7 @@
+const input = require("fs")
+  .readFileSync("/dev/stdin")
+  .toString()
+  .trim()
+  .split("\n")
+  .reduce((acc, cur) => acc + +cur, 0);
+console.log(input);
